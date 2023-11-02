@@ -1,0 +1,95 @@
+<div class="container">
+  <div class="create">
+    <div class="create__header">
+      <h2>Formulario de Registro</h2>
+    </div>
+    <div class="create__content">
+      <form [formGroup]="productForm" (ngSubmit)="onSubmit()" #form="ngForm">
+        <div class="row">
+          <div class="form-group">
+            <label for="id">ID</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="id"
+              [ngClass]="{errorField: invalidFormControl('id')}"
+            />
+            <div class="errorText">
+              {{ productForm.get('id') | validations:form }}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="name"
+              [ngClass]="{ errorField: invalidFormControl('name')}"
+            />
+            <div class="errorText">
+              {{ productForm.get('name') | validations:form }}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <label for="descripcion">Descripción</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="description"
+              [ngClass]="{ errorField: invalidFormControl('description')}"
+            />
+            <div class="errorText">
+              {{ productForm.get('description') | validations:form }}
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="logo">Logo</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="logo"
+              [ngClass]="{ errorField: invalidFormControl('logo')}"
+              class="form-control"
+            />
+            <div class="errorText">
+              {{ productForm.get('logo') | validations:form}}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <label for="fechaLiberacion">Fecha de Liberación</label>
+            <input
+              type="date"
+              class="form-control"
+              formControlName="date_release"
+              [ngClass]="{ errorField: invalidFormControl('date_release')}"
+            />
+            <div class="errorText">
+              {{ productForm.get('date_release') | validations:form }}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="date_revision">Fecha de Restauración</label>
+            <input
+              type="date"
+              class="form-control"
+              formControlName="date_revision"
+              [ngClass]="{ errorField: invalidFormControl('date_revision')}"            />
+              <div class="errorText">
+                {{ productForm.get('date_revision') | validations:form }}
+              </div>
+          </div>
+        </div>
+        <span class="actions">
+          <button type="button" class="cancel" (click)="clearForm()">Reiniciar</button>
+          <button  class="confirm">Enviar</button>
+        </span>
+      </form>
+    </div>
+  </div>
+</div>

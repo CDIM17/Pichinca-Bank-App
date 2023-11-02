@@ -1,0 +1,78 @@
+<section class="table">
+  <div class="table__header">
+    <input class="table__header--search" type="text" placeholder="Search..." [(ngModel)]="searchTerm" (ngModelChange)="onSearchChange()"/>
+    <a [routerLink]="['/create']">
+      <button class="table__header--addBtn" type="button">Agregar</button>
+    </a>
+  </div>
+  <div class="table__content">
+    <table>
+      <thead>
+        <th>Logo</th>
+        <th>
+          Nombre del producto
+          <app-tooltip text="Nombre del producto"></app-tooltip>
+        </th>
+        <th>
+          Description
+          <app-tooltip text="Description"></app-tooltip>
+        </th>
+        <th>
+          Fecha de liberación
+          <app-tooltip text="Fecha de liberación"></app-tooltip>
+        </th>
+        <th>
+          Fecha de reestructuración
+          <app-tooltip text="Fecha de reestructuración"></app-tooltip>
+        </th>
+        <th></th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of filteredProducts; let i = index">
+          <td>
+            <ng-container *ngIf="!!item.logo; else imageTemplate">
+              <!-- <img src="{{ item.logo }}" alt="Foto placeholder" /> -->
+            </ng-container>
+            <ng-template #imageTemplate>
+              <div class="textLogo">
+                <span class="textLogo__content">{{item.name.slice(0, 2)}}</span>
+              </div>
+            </ng-template>
+          </td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.description }}</td>
+          <td>{{ item.date_release| date : "MM/dd/YYYY" }}</td>
+          <td>{{ item.date_revision| date : "MM/dd/YYYY" }}</td>
+          <td>
+            <div class="dropdown">
+              <img
+              class="menuDots"
+              src="../assets/icons/three-dots.svg"
+              alt="Menu"
+            />
+               <div class="dropdown-content">
+                  <div (click)="navigateToEditProduct(item.id)" >Editar</div>
+                  <div >
+                    <app-modal [item]="item" (executeDelete)="deleteProduct(item.id)">
+                    <span>Eliminar</span>
+                    </app-modal>
+                  </div>
+                </div>
+            </div>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="table__footer">
+    <span class="table__footer--results" *ngIf="products">{{ products.length }} Resultados</span>
+    <div class="selectContainer">
+      <select name="" id="" class="table__footer--select">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+      </select>
+    </div>
+  </div>
+</section>

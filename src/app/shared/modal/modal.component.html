@@ -1,0 +1,15 @@
+<div (click)="openModal()">
+  <ng-content></ng-content>
+</div>
+
+<div class="modal" *ngIf="isModalOpen">
+  <div class="modal__content">
+    <div class="modal__content--text">
+      ¿Seguro de eliminar el producto {{ item.name }}?
+    </div>
+    <div class="modal__content--actions">
+      <button class="cancel" (click)="closeModal()">Cancelar</button>
+      <button class="confirm" (click)="confirm()">Confirmar</button>
+    </div>
+  </div>
+</div>

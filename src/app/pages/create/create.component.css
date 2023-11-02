@@ -1,0 +1,87 @@
+.errorText {
+  color: #ff0000;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+.errorField {
+  border: 2px solid red !important;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 3rem;
+  width: 100%;
+}
+.create {
+  background-color: #fff;
+  width: 45%;
+}
+.create__header {
+  display: flex;
+  justify-content: center;
+  border-bottom: #000 1px solid;
+}
+.create__content {
+  padding: 1rem 2rem;
+}
+.create__content form {
+  display: flex;
+  flex-direction: column;
+}
+.create__content .actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  width: 100%;
+  margin: 3rem 0 2rem 0;
+}
+.create__content .actions button {
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  color: #232d5e;
+  padding: 1rem 1.5rem;
+  border-radius: 0.2rem;
+}
+.create__content .actions .cancel {
+  background-color: #e9ecf3;
+}
+.create__content .actions .confirm {
+  background-color: #fcdf00;
+}
+
+.create__content .actions .confirm .disable-btn {
+  background-color: #fcdf00;
+  opacity: 0.5;
+}
+
+.row {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  gap: 1.5rem;
+}
+.form-group {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  width: 50%;
+}
+.form-group label {
+  font-weight: bold;
+  font-size: 14px;
+}
+.form-group input,
+.form-group textarea {
+  display: block;
+  border-radius: 0.2rem;
+  padding: 10px;
+  outline: none;
+  height: fit-content;
+  border: 1px solid #000;
+}
